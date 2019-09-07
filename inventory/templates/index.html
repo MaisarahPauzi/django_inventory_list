@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>id</th>
+        <th>Model</th>
+        <th>Price</th>
+        <th>Status</th>
+        <th>Issues</th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+    {% if items.count > 0 %}
+      <div>
+        <h4>Currently Viewing: {{ header }}</h4>
+      </div>
+    {% for item in items %}
+
+    <tr>
+      <td>{{ item.pk }}
+      <td>{{ item.types }}</td>
+      <td>{{ item.price }} $</td>
+      <td>{{ item.status }}</td>
+      <td>{{ item.issues }}</td>
+
+    </tr>
+
+    {% endfor %}
+    {% else %}
+      <div>
+        <h4>Currently Viewing: None</h4>
+      </div>
+      <p>Please select categories of items</p>
+    {% endif %}
+      
+    </tbody>
+  </table>
+
+{% endblock %}
